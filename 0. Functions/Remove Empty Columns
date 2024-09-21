@@ -1,0 +1,9 @@
+# func to remove empty columns
+def remove_empty_cols(df, inplace:bool):
+    """
+    returns dataframe with empty columns removed
+    `df:` pandas dataframe
+    `inplace:` indicates whether to remove empty cols in place or not
+    """
+    empty_cols = df.isnull().sum()[df.isnull().sum() > 0].index.to_list()
+    return df.drop(columns=empty_cols, inplace=inplace)
