@@ -1,0 +1,7 @@
+def remove_all_empty_rows(df, inplace: bool=False):
+    """
+    returns dataframe with all empty rows removed
+    `df`: pandas dataframe
+    `inplace`: indicates whether to overrite df in place
+    """
+    return df.dropna(how='all', inplace=inplace)
