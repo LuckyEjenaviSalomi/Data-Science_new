@@ -1,0 +1,18 @@
+# user-defined function to compare the equality of two means from two independent populations, where population standard deviations are known
+# this function returns the p-value for one-tailed test
+# for two-tailed test, multiply the p-value by 2
+def ztest_2samp(X1, X2, pop_sd1, pop_sd2, n1, n2):
+    '''
+    X1 - first of the two independent samples (sample 1)
+    X2 - second of the two independent samples (sample 2)
+    pop_sd1 - Population standard deviation of sample 1
+    pop_sd2 - Population standard deviation of sample 2
+    n1 - the size of sample 1
+    n2 - the size of sample 2
+    '''
+    from numpy import sqrt, abs
+    from scipy.stats import norm
+    se = sqrt(pop_sd1**2/n1 + pop_sd2**2/n2)
+    test_stat = ((X1.mean() - X2.mean()) - 0)/ se
+    pval = 1 - norm.cdf(abs(test_stat))
+    return pval
