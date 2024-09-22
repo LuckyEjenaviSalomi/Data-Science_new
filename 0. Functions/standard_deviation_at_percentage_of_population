@@ -1,0 +1,2 @@
+def get_std (perc: float):
+    return abs((1/(1-perc)) ** (1/2))
