@@ -9,7 +9,7 @@ def display_missing_data_count(df_):
     null_columns_df.sort_values(by='value_count', ascending=False)
     if len(null_columns_df):
         msg = f'There are {null_columns_df.shape[0]} column(s) with null values'
-        print("-" * 20, msg, null_columns_df, "-" * 20, sep='\n')
+        print("-" * 20, msg, "-" * 20, sep='\n')
         return null_columns_df
     else:
         print("You supplied blank DataFrame...")
