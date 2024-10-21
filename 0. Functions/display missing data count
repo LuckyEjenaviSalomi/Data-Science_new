@@ -6,7 +6,7 @@ def display_missing_data_count(df_):
     import pandas as pd
     null_columns_df = pd.DataFrame(df_.isnull().sum()[df_.isnull().sum() > 0], columns=['value_count'])
     null_columns_df['%'] = (null_columns_df['value_count']/df_.shape[0]) * 100
-    null_columns_df.sort_values(by='value_count', ascending=False)
+    null_columns_df.sort_values(by='value_count', ascending=False, inplace=True)
     if len(null_columns_df):
         msg = f'There are {null_columns_df.shape[0]} column(s) with null values'
         print("-" * 20, msg, "-" * 20, sep='\n')
